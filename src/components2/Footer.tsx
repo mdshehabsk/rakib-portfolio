@@ -1,4 +1,5 @@
-import { Phone, Mail, MapPin, type SVGProps } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
+import type { SVGProps } from "react";
 
 /**
  * lucide-react no longer ships brand/social icons, so these are
@@ -15,7 +16,13 @@ function Facebook(props: SVGProps<SVGSVGElement>) {
 
 function Instagram(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} {...props}>
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.8}
+      {...props}
+    >
       <rect x="3.5" y="3.5" width="17" height="17" rx="4.5" />
       <circle cx="12" cy="12" r="3.7" />
       <circle cx="17.1" cy="6.9" r="0.9" fill="currentColor" stroke="none" />
@@ -89,8 +96,8 @@ export default function Footer() {
             </a>
             <p className="mb-5 text-sm leading-relaxed text-slate-400">
               ইসলামিক ক্যালিগ্রাফি, পেইন্টিং, ওয়াল আর্ট, ইন্টেরিয়র ডিজাইন ও
-              ল্যান্ডস্কেপ ডিজাইনের মাধ্যমে আমরা আপনার স্বপ্নকে রূপ দেই
-              শিল্পের ছোঁয়ায়।
+              ল্যান্ডস্কেপ ডিজাইনের মাধ্যমে আমরা আপনার স্বপ্নকে রূপ দেই শিল্পের
+              ছোঁয়ায়।
             </p>
             <div className="flex items-center gap-3">
               {SOCIALS.map((social) => {

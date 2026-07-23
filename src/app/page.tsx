@@ -1,30 +1,25 @@
-import { About } from "@/components/About";
+import  Portfolio  from "@/components/Portfolio";
+import Features from "@/components/Features";
+import Founder from "@/components/Founder";
 import Hero from "@/components/Hero";
+import Navbar from "@/components/Navbar";
+import StatsBanner from "@/components/StatsBanner";
+import Testimonials from "@/components/Testimonials";
+import  Footer  from "@/components/Footer";
 
-import { Contact } from "@/components/Contact";
-import { Coverage } from "@/components/Coverage";
-import { Footer } from "@/components/Footer";
-
-import { Navbar } from "@/components/Navbar";
-import { Portfolio } from "@/components/Portfolio";
-import { Services } from "@/components/Service";
-import { Testimonials } from "@/components/Testimonail";
-import Image from "next/image";
-
-export default function Home() {
+const New = () => {
   return (
-    <main className=" overflow-x-hidden ">
-      <Navbar />
-      <main className="pt-20">
-        <Hero />
-        <Services />
-        <Portfolio />
-        <Coverage />
-        <Testimonials />
-        <About />
-        <Contact />
-      </main>
-      <Footer />
-    </main>
+    <>
+    <Navbar />
+    <Hero/>
+    <Features/>
+    <Founder/>
+    <Portfolio/>
+    <StatsBanner/>
+    <Testimonials/>
+    <Footer/>
+    </>
   );
-}
+};
+
+export default New;

@@ -1,118 +1,138 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
+import { useEffect, useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
-type Project = {
-  id: number
-  title: string
-  style: string
-  location: string
-  image: string
-}
+type GalleryImage = {
+  id: string;
+  titleBn: string;
+  image: string;
+};
 
-const categories = ['সব', 'সুলুস', 'নাসখ', 'কুফি', 'দিওয়ানি']
+const GALLERY_IMAGES: GalleryImage[] = [
+  { id: "img-1", titleBn: "প্রোজেক্ট 1", image: "/12471.jpg.jpeg" },
+  { id: "img-2", titleBn: "প্রোজেক্ট 2", image: "/12589.png" },
+  { id: "img-3", titleBn: "প্রোজেক্ট 3", image: "/12591.png" },
+  { id: "img-4", titleBn: "প্রোজেক্ট 4", image: "/12605.png" },
+  { id: "img-5", titleBn: "প্রোজেক্ট 5", image: "/12607.png" },
+  { id: "img-6", titleBn: "প্রোজেক্ট 6", image: "/12609.png" },
+  { id: "img-7", titleBn: "প্রোজেক্ট 7", image: "/12610.png" },
+  { id: "img-8", titleBn: "প্রোজেক্ট 8", image: "/12620.png" },
+  { id: "img-9", titleBn: "প্রোজেক্ট 9", image: "/12622.png" },
+  { id: "img-10", titleBn: "প্রোজেক্ট 10", image: "/12624.png" },
+  { id: "img-11", titleBn: "প্রোজেক্ট 11", image: "/12771.png" },
+  { id: "img-13", titleBn: "হিরো 1", image: "/hero/hero1.png" },
+  { id: "img-14", titleBn: "হিরো 2", image: "/hero/hero2.png" },
+  { id: "img-15", titleBn: "হিরো 3", image: "/hero/hero3.png" },
+];
 
-const projects: Project[] = [
-  { id: 1, title: 'দারুল উলূম মাদরাসা', style: 'সুলুস', location: 'ঢাকা', image: 'https://placehold.co/600x400/065f46/ffffff?text=Calligraphy+1' },
-  { id: 2, title: 'জামিয়া ইসলামিয়া', style: 'নাসখ', location: 'চট্টগ্রাম', image: 'https://placehold.co/600x400/047857/ffffff?text=Calligraphy+2' },
-  { id: 3, title: 'বায়তুল মোকাররম মসজিদ', style: 'কুফি', location: 'সিলেট', image: 'https://placehold.co/600x400/059669/ffffff?text=Calligraphy+3' },
-  { id: 4, title: 'আল-হেরা মাদরাসা', style: 'দিওয়ানি', location: 'রাজশাহী', image: 'https://placehold.co/600x400/065f46/ffffff?text=Calligraphy+4' },
-  { id: 5, title: 'নূরানী মাদরাসা', style: 'সুলুস', location: 'খুলনা', image: 'https://placehold.co/600x400/047857/ffffff?text=Calligraphy+5' },
-  { id: 6, title: 'মদিনাতুল উলূম', style: 'নাসখ', location: 'বরিশাল', image: 'https://placehold.co/600x400/059669/ffffff?text=Calligraphy+6' },
-]
+export default function Portfolio() {
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [zoom, setZoom] = useState(1);
+  const selectedImage = selectedIndex !== null ? GALLERY_IMAGES[selectedIndex] : null;
 
-export function Portfolio() {
-  const [active, setActive] = useState('সব')
+  useEffect(() => {
+    if (selectedIndex !== null) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
 
-  const filtered =
-    active === 'সব' ? projects : projects.filter((p) => p.style === active)
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [selectedIndex]);
+
+  const showPrevious = () => {
+    if (selectedIndex === null) return;
+    setSelectedIndex((selectedIndex - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length);
+    setZoom(1);
+  };
+
+  const showNext = () => {
+    if (selectedIndex === null) return;
+    setSelectedIndex((selectedIndex + 1) % GALLERY_IMAGES.length);
+    setZoom(1);
+  };
+
+  const handleWheel = (event: React.WheelEvent<HTMLImageElement>) => {
+    event.preventDefault();
+    setZoom((current) => {
+      const delta = event.deltaY < 0 ? 0.1 : -0.1;
+      const next = current + delta;
+      return Math.min(3, Math.max(0.5, next));
+    });
+  };
 
   return (
-    <section
-      id="portfolio"
-      className="relative bg-white px-6 py-24"
-      style={{ fontFamily: "'Hind Siliguri', sans-serif" }}
-    >
-      {/* soft green decoration */}
-      <div className="pointer-events-none absolute -left-20 top-10 h-64 w-64 rounded-full bg-emerald-100 blur-3xl" />
-      <div className="pointer-events-none absolute -right-20 bottom-10 h-72 w-72 rounded-full bg-emerald-50 blur-3xl" />
-
-      <div className="relative mx-auto max-w-6xl">
-        {/* heading */}
-        <div className="mb-14 text-center">
-          <p className="mb-2 text-sm uppercase tracking-widest text-emerald-500">
-            Portfolio
+    <section id="portfolio" className="bg-[#fdfaf3] py-14 sm:py-20">
+      <div className="mx-auto max-w-7xl px-4 lg:px-8">
+        <div className="mb-8 text-center">
+          <p className="mb-2 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-amber-600">
+            Our Gallery
           </p>
-          <h2 className="text-3xl font-bold text-emerald-800 md:text-4xl">
-            আমাদের কাজের নমুনা
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
+            আমাদের গ্যালারি
           </h2>
-          <div className="mx-auto mt-4 h-1 w-16 rounded-full bg-emerald-400" />
         </div>
 
-        {/* filter tabs */}
-        <div className="mb-12 flex flex-wrap justify-center gap-3">
-          {categories.map((cat) => (
+        <div className="columns-1 gap-4 space-y-4 sm:columns-2 lg:columns-3 ">
+          {GALLERY_IMAGES.map((image, index) => (
             <button
-              key={cat}
-              onClick={() => setActive(cat)}
-              className={`rounded-full px-5 py-2 text-sm font-medium transition ${
-                active === cat
-                  ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/20'
-                  : 'bg-emerald-50 text-emerald-700 hover:bg-emerald-100'
-              }`}
+              key={image.id}
+              type="button"
+              onClick={() => {
+                setSelectedIndex(index);
+                setZoom(1);
+              }}
+              className="group mb-4 break-inside-avoid overflow-hidden bg-slate-100 p-0 text-left"
             >
-              {cat}
+              <img
+                src={image.image}
+                alt={image.titleBn}
+                className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+              />
             </button>
           ))}
         </div>
 
-        {/* gallery grid */}
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((project) => (
+        {selectedImage && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 px-4 py-8"
+            onClick={() => setSelectedIndex(null)}
+          >
             <div
-              key={project.id}
-              className="group relative overflow-hidden rounded-2xl border border-emerald-100 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl hover:shadow-emerald-100"
+              className="relative  overflow-hidden rounded-3xl shadow-2xl"
+              onClick={(event) => event.stopPropagation()}
             >
-              <div className="aspect-[4/3] overflow-hidden">
+              <button
+                type="button"
+                onClick={showPrevious}
+                className="absolute left-4 top-1/2 z-10 inline-flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-black text-white transition hover:bg-white/20"
+              >
+                <ChevronLeft className="h-6 w-6" />
+              </button>
+              <button
+                type="button"
+                onClick={showNext}
+                className="absolute right-4 top-1/2 z-10 inline-flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-black text-white transition hover:bg-white/20"
+              >
+                <ChevronRight className="h-6 w-6" />
+              </button>
+              <div className="flex min-h-[60vh] items-center justify-center overflow-hidden p-4">
                 <img
-                  src={project.image}
-                  alt={project.title}
-                  className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+                  src={selectedImage.image}
+                  alt={selectedImage.titleBn}
+                  className="max-h-[80vh] max-w-full object-contain transition-transform duration-150"
+                  style={{ transform: `scale(${zoom})` }}
+                  onWheel={handleWheel}
                 />
               </div>
-
-              {/* overlay on hover */}
-              <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-emerald-950/80 via-emerald-950/10 to-transparent p-5 opacity-0 transition duration-300 group-hover:opacity-100">
-                <span className="mb-1 w-fit rounded-full bg-emerald-500/90 px-3 py-1 text-xs font-semibold text-white">
-                  {project.style}
-                </span>
-                <h3 className="text-lg font-semibold text-white">
-                  {project.title}
-                </h3>
-                <p className="text-sm text-emerald-100/90">{project.location}</p>
-              </div>
-
-              {/* static caption (visible without hover, mobile-friendly) */}
-              <div className="p-4 group-hover:opacity-0 transition">
-                <h3 className="font-semibold text-emerald-800">{project.title}</h3>
-                <p className="text-sm text-gray-500">
-                  {project.style} · {project.location}
-                </p>
-              </div>
             </div>
-          ))}
-        </div>
-
-        {/* view all */}
-        <div className="mt-14 text-center">
-          <a
-            href="/portfolio"
-            className="inline-block rounded-full border border-emerald-300 bg-emerald-50 px-8 py-3 font-semibold text-emerald-700 transition hover:bg-emerald-100"
-          >
-            সব কাজ দেখুন
-          </a>
-        </div>
+          </div>
+        )}
       </div>
     </section>
-  )
+  );
 }

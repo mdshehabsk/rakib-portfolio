@@ -7,6 +7,7 @@ import {
   Type,
   Trees,
 } from "lucide-react";
+import Image from "next/image";
 
 type Stat = {
   value: string;
@@ -21,7 +22,7 @@ const STATS: Stat[] = [
 ];
 
 const EXPERTISE = [
-  { icon: Star, labelBn: "ইসলামিক ক্যালিগ্রাফি" },
+  { icon: Star, labelBn: "ক্যালিগ্রাফি" },
   { icon: Feather, labelBn: "ক্যানভাস পেইন্টিং" },
   { icon: Palette, labelBn: "ওয়াল মুরাল" },
   { icon: Building2, labelBn: "ইন্টেরিয়র আর্ট" },
@@ -36,10 +37,12 @@ export default function Founder() {
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[0.85fr_1.15fr_0.7fr]">
           {/* Photo */}
           <div className="overflow-hidden rounded-2xl">
-            <img
-              src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=1200&auto=format&fit=crop"
+            <Image
+              src="/avatar.jpg"
               alt="Md. Rakib Khan, Founder & Creative Director of Artova"
               className="h-full w-full object-cover"
+              width={1000}
+              height={1000}
             />
           </div>
 

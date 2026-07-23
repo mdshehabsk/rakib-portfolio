@@ -7,3 +7,7 @@
   --font-playwrite: "Playwrite ID", cursive;
   --font-kufi: "Noto Kufi Arabic", sans-serif;
 }
+
+* {
+  scroll-behavior: smooth;
+}

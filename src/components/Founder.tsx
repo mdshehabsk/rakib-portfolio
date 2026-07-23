@@ -11,23 +11,24 @@ import Image from "next/image";
 
 type Stat = {
   value: string;
-  labelBn: string;
+  label: string;
 };
 
 const STATS: Stat[] = [
-  { value: "5+", labelBn: "বছরের অভিজ্ঞতা" },
-  { value: "250+", labelBn: "সম্পন্ন প্রোজেক্ট" },
-  { value: "180+", labelBn: "সন্তুষ্ট ক্লায়েন্ট" },
-  { value: "64+", labelBn: "জেলায় সেবা" },
+  { value: "5+", label: "Years of Experience" },
+  { value: "250+", label: "Completed Projects" },
+  { value: "180+", label: "Satisfied Clients" },
+  { value: "64+", label: "Districts Served" },
+  { value: "5+", label: "International Clients" },
 ];
 
 const EXPERTISE = [
-  { icon: Star, labelBn: "ক্যালিগ্রাফি" },
-  { icon: Feather, labelBn: "ক্যানভাস পেইন্টিং" },
-  { icon: Palette, labelBn: "ওয়াল মুরাল" },
-  { icon: Building2, labelBn: "ইন্টেরিয়র আর্ট" },
-  { icon: Type, labelBn: "টাইপোগ্রাফি ডিজাইন" },
-  { icon: Trees, labelBn: "ল্যান্ডস্কেপ ডিজাইন" },
+  { icon: Star, label: "Calligraphy" },
+  { icon: Feather, label: "Canvas Painting" },
+  { icon: Palette, label: "Wall Murals" },
+  { icon: Building2, label: "Interior Art" },
+  { icon: Type, label: "Typography Design" },
+  { icon: Trees, label: "Landscape Design" },
 ];
 
 export default function Founder() {
@@ -64,25 +65,25 @@ export default function Founder() {
             </blockquote>
 
             <p className="mb-8 text-sm sm:text-base leading-relaxed text-slate-600">
-              ৫+ বছরের অভিজ্ঞতা নিয়ে আমরা ইসলামিক ক্যালিগ্রাফি, ক্যানভাস
-              পেইন্টিং, ওয়াল মুরাল, টাইপোগ্রাফি এবং ইন্টেরিয়র আর্টের মাধ্যমে
-              দেশ-বিদেশের ক্লায়েন্টদের জন্য কাজ করে যাচ্ছি। আমাদের লক্ষ্য
-              থাকে প্রতিটি কাজে শৈল্পিক সৌন্দর্য, শান্তি ও নান্দনিকতার ছোঁয়া
-              পৌঁছে দেওয়া।
+              With over 5 years of experience, we specialize in calligraphy,
+              canvas painting, wall murals, typography, and interior art. We
+              serve clients locally and internationally, striving to bring
+              artistic beauty, serenity, and refined aesthetics to every
+              project.
             </p>
 
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+            <div className="flex flex-wrap justify-between items-center gap-4">
               {STATS.map((stat) => (
                 <div
-                  key={stat.labelBn}
-                  className="rounded-xl border border-slate-100 bg-[#fdfaf3] px-3 py-4 text-center"
+                  key={stat.label}
+                  className="rounded-xl border border-slate-100 bg-[#fdfaf3] px-3 py-4 text-center grow"
                 >
                   <p className="text-xl sm:text-2xl font-extrabold text-amber-600">
                     {stat.value}
                   </p>
                   <p className="mt-1 text-[11px] sm:text-xs font-medium text-slate-500">
-                    {stat.labelBn}
-                  </p>
+                      {stat.label}
+                    </p>
                 </div>
               ))}
             </div>
@@ -92,20 +93,20 @@ export default function Founder() {
           <div className="flex flex-col justify-between rounded-2xl bg-[#0a1128] p-6 text-white">
             <div>
               <h3 className="mb-5 text-sm font-bold uppercase tracking-wide text-amber-400">
-                বিশেষজ্ঞতা
+                Expertise
               </h3>
               <ul className="space-y-3.5">
                 {EXPERTISE.map((item) => {
                   const Icon = item.icon;
                   return (
                     <li
-                      key={item.labelBn}
+                      key={item.label}
                       className="flex items-center gap-3 text-sm text-slate-200"
                     >
                       <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/10 text-amber-400">
                         <Icon className="h-4 w-4" strokeWidth={1.75} />
                       </span>
-                      {item.labelBn}
+                      {item.label}
                     </li>
                   );
                 })}

@@ -10,15 +10,15 @@ import {
 type Stat = {
   icon: LucideIcon;
   value: string;
-  labelBn: string;
+  label: string;
 };
 
 const STATS: Stat[] = [
-  { icon: FolderCheck, value: "250+", labelBn: "সম্পন্ন প্রোজেক্ট" },
-  { icon: Users, value: "180+", labelBn: "সন্তুষ্ট ক্লায়েন্ট" },
-  { icon: MapPinned, value: "64+", labelBn: "জেলায় সেবা" },
-  { icon: ThumbsUp, value: "5+", labelBn: "বছরের অভিজ্ঞতা" },
-  { icon: BadgePercent, value: "100%", labelBn: "কাস্টম ডিজাইন" },
+  { icon: FolderCheck, value: "250+", label: "Completed Projects" },
+  { icon: Users, value: "180+", label: "Satisfied Clients" },
+  { icon: MapPinned, value: "64+", label: "Districts Served" },
+  { icon: ThumbsUp, value: "5+", label: "Years of Experience" },
+  { icon: BadgePercent, value: "100%", label: "Custom Designs" },
 ];
 
 export default function StatsBanner() {
@@ -31,7 +31,7 @@ export default function StatsBanner() {
             const isLast = index === STATS.length - 1;
             return (
               <div
-                key={stat.labelBn}
+                key={stat.label}
                 className={`flex items-center justify-center gap-3 px-2 sm:justify-start lg:border-r lg:border-white/10 ${
                   isLast ? "lg:border-r-0" : ""
                 }`}
@@ -44,7 +44,7 @@ export default function StatsBanner() {
                     {stat.value}
                   </p>
                   <p className="text-[11px] sm:text-xs font-medium text-slate-400">
-                    {stat.labelBn}
+                    {stat.label}
                   </p>
                 </div>
               </div>

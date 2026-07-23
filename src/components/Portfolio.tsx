@@ -5,25 +5,25 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 type GalleryImage = {
   id: string;
-  titleBn: string;
+  title: string;
   image: string;
 };
 
 const GALLERY_IMAGES: GalleryImage[] = [
-  { id: "img-1", titleBn: "প্রোজেক্ট 1", image: "/12471.jpg.jpeg" },
-  { id: "img-2", titleBn: "প্রোজেক্ট 2", image: "/12589.png" },
-  { id: "img-3", titleBn: "প্রোজেক্ট 3", image: "/12591.png" },
-  { id: "img-4", titleBn: "প্রোজেক্ট 4", image: "/12605.png" },
-  { id: "img-5", titleBn: "প্রোজেক্ট 5", image: "/12607.png" },
-  { id: "img-6", titleBn: "প্রোজেক্ট 6", image: "/12609.png" },
-  { id: "img-7", titleBn: "প্রোজেক্ট 7", image: "/12610.png" },
-  { id: "img-8", titleBn: "প্রোজেক্ট 8", image: "/12620.png" },
-  { id: "img-9", titleBn: "প্রোজেক্ট 9", image: "/12622.png" },
-  { id: "img-10", titleBn: "প্রোজেক্ট 10", image: "/12624.png" },
-  { id: "img-11", titleBn: "প্রোজেক্ট 11", image: "/12771.png" },
-  { id: "img-13", titleBn: "হিরো 1", image: "/hero/hero1.png" },
-  { id: "img-14", titleBn: "হিরো 2", image: "/hero/hero2.png" },
-  { id: "img-15", titleBn: "হিরো 3", image: "/hero/hero3.png" },
+  { id: "img-1", title: "Project 1", image: "/12471.jpg.jpeg" },
+  { id: "img-2", title: "Project 2", image: "/12589.png" },
+  { id: "img-3", title: "Project 3", image: "/12591.png" },
+  { id: "img-4", title: "Project 4", image: "/12605.png" },
+  { id: "img-5", title: "Project 5", image: "/12607.png" },
+  { id: "img-6", title: "Project 6", image: "/12609.png" },
+  { id: "img-7", title: "Project 7", image: "/12610.png" },
+  { id: "img-8", title: "Project 8", image: "/12620.png" },
+  { id: "img-9", title: "Project 9", image: "/12622.png" },
+  { id: "img-10", title: "Project 10", image: "/12624.png" },
+  { id: "img-11", title: "Project 11", image: "/12771.png" },
+  { id: "img-13", title: "Hero 1", image: "/hero/hero1.png" },
+  { id: "img-14", title: "Hero 2", image: "/hero/hero2.png" },
+  { id: "img-15", title: "Hero 3", image: "/hero/hero3.png" },
 ];
 
 export default function Portfolio() {
@@ -68,11 +68,11 @@ export default function Portfolio() {
     <section id="portfolio" className="bg-[#fdfaf3] py-14 sm:py-20">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="mb-8 text-center">
-          <p className="mb-2 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-amber-600">
+          {/* <p className="mb-2 text-xs sm:text-sm font-semibold uppercase tracking-[0.2em] text-amber-600">
             Our Gallery
-          </p>
+          </p> */}
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-            আমাদের গ্যালারি
+            Our Gallery
           </h2>
         </div>
 
@@ -89,7 +89,7 @@ export default function Portfolio() {
             >
               <img
                 src={image.image}
-                alt={image.titleBn}
+                alt={image.title}
                 className="w-full h-auto transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
               />
@@ -123,7 +123,7 @@ export default function Portfolio() {
               <div className="flex min-h-[60vh] items-center justify-center overflow-hidden p-4">
                 <img
                   src={selectedImage.image}
-                  alt={selectedImage.titleBn}
+                  alt={selectedImage.title}
                   className="max-h-[80vh] max-w-full object-contain transition-transform duration-150"
                   style={{ transform: `scale(${zoom})` }}
                   onWheel={handleWheel}

@@ -1,11 +1,9 @@
 import { Phone, Mail, MapPin } from "lucide-react";
 import type { SVGProps } from "react";
+import logo from '../app/favicon.ico';
+import Image from "next/image";
 
-/**
- * lucide-react no longer ships brand/social icons, so these are
- * small hand-rolled SVGs kept in the same visual weight/style
- * (same as used in Navbar.tsx — keep both in sync if you edit).
- */
+
 function Facebook(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
@@ -50,21 +48,21 @@ function Pinterest(props: SVGProps<SVGSVGElement>) {
 type LinkItem = { labelBn: string; href: string };
 
 const QUICK_LINKS: LinkItem[] = [
-  { labelBn: "হোম", href: "#home" },
-  { labelBn: "আমাদের সম্পর্কে", href: "#about" },
-  { labelBn: "সেবাসমূহ", href: "#services" },
-  { labelBn: "পোর্টফোলিও", href: "#portfolio" },
-  { labelBn: "টেস্টিমোনিয়াল", href: "#testimonials" },
-  { labelBn: "যোগাযোগ", href: "#contact" },
+  { labelBn: "Home", href: "#home" },
+  { labelBn: "About Us", href: "#about" },
+  { labelBn: "Services", href: "#services" },
+  { labelBn: "Portfolio", href: "#portfolio" },
+  { labelBn: "Testimonials", href: "#testimonials" },
+  { labelBn: "Contact", href: "#contact" },
 ];
 
 const SERVICES: LinkItem[] = [
-  { labelBn: "ক্যালিগ্রাফি", href: "#services" },
-  { labelBn: "ক্যানভাস পেইন্টিং", href: "#services" },
-  { labelBn: "ওয়াল মুরাল", href: "#services" },
-  { labelBn: "ইন্টেরিয়র আর্ট", href: "#services" },
-  { labelBn: "টাইপোগ্রাফি ডিজাইন", href: "#services" },
-  { labelBn: "ল্যান্ডস্কেপ ডিজাইন", href: "#services" },
+  { labelBn: "Calligraphy", href: "#services" },
+  { labelBn: "Canvas Painting", href: "#services" },
+  { labelBn: "Wall Art", href: "#services" },
+  { labelBn: "Interior Art", href: "#services" },
+  { labelBn: "Typography Design", href: "#services" },
+  { labelBn: "Landscape Design", href: "#services" },
 ];
 
 const SOCIALS = [
@@ -82,9 +80,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <a href="#home" className="mb-4 flex items-center gap-2.5">
-              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-sky-400 via-emerald-400 to-amber-400 text-white font-bold">
-                A
-              </span>
+                       <Image src={logo} alt="logo image" className="w-12 h-12 rounded-full" />
               <span className="leading-tight">
                 <span className="block text-lg font-extrabold tracking-wide text-white">
                   ARTOVA
@@ -95,9 +91,8 @@ export default function Footer() {
               </span>
             </a>
             <p className="mb-5 text-sm leading-relaxed text-slate-400">
-              ইসলামিক ক্যালিগ্রাফি, পেইন্টিং, ওয়াল আর্ট, ইন্টেরিয়র ডিজাইন ও
-              ল্যান্ডস্কেপ ডিজাইনের মাধ্যমে আমরা আপনার স্বপ্নকে রূপ দেই শিল্পের
-              ছোঁয়ায়।
+              We bring your vision to life through calligraphy, painting, wall art,
+              interior design, and landscape design with a creative touch.
             </p>
             <div className="flex items-center gap-3">
               {SOCIALS.map((social) => {
@@ -114,43 +109,40 @@ export default function Footer() {
                 );
               })}
             </div>
+            <div className="mt-6">
+              <a
+                href="https://wa.me/8801740367554"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 px-4 py-3 text-sm font-semibold text-white shadow-sm hover:from-amber-600 hover:to-amber-700"
+              >
+                <Phone className="h-4 w-4" />
+                  Get Free Consultation
+              </a>
+            </div>
           </div>
 
           {/* Quick links */}
           <div>
-            <h3 className="mb-4 text-sm font-bold uppercase tracking-wide text-white">
-              দ্রুত লিংক
-            </h3>
+            <h3 className="mb-4 text-sm font-bold uppercase tracking-wide text-white">Quick Links</h3>
             <ul className="space-y-2.5">
-              {QUICK_LINKS.map((link) => (
-                <li key={link.labelBn}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-slate-400 transition-colors hover:text-amber-400"
-                  >
-                    {link.labelBn}
-                  </a>
-                </li>
-              ))}
+                {QUICK_LINKS.map((link) => (
+                  <li key={link.labelBn}>
+                    <a href={link.href} className="text-sm text-slate-400 transition-colors hover:text-amber-400">{link.labelBn}</a>
+                  </li>
+                ))}
             </ul>
           </div>
 
           {/* Services */}
           <div>
-            <h3 className="mb-4 text-sm font-bold uppercase tracking-wide text-white">
-              আমাদের সেবাসমূহ
-            </h3>
+            <h3 className="mb-4 text-sm font-bold uppercase tracking-wide text-white">Our Services</h3>
             <ul className="space-y-2.5">
-              {SERVICES.map((link) => (
-                <li key={link.labelBn}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-slate-400 transition-colors hover:text-amber-400"
-                  >
-                    {link.labelBn}
-                  </a>
-                </li>
-              ))}
+                {SERVICES.map((link) => (
+                  <li key={link.labelBn}>
+                    <a href={link.href} className="text-sm text-slate-400 transition-colors hover:text-amber-400">{link.labelBn}</a>
+                  </li>
+                ))}
             </ul>
           </div>
 

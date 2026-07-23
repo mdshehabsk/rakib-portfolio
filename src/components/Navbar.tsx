@@ -3,10 +3,8 @@
 import { useState, useEffect, type SVGProps } from "react";
 import { Phone, MessageCircle, Menu, X, ChevronDown } from "lucide-react";
 
-/**
- * lucide-react no longer ships brand/social icons, so these three
- * are small hand-rolled SVGs kept in the same visual weight/style.
- */
+import logo from "../app/favicon.ico";
+import Image from "next/image";
 function Facebook(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
@@ -35,17 +33,17 @@ function Youtube(props: SVGProps<SVGSVGElement>) {
 }
 
 type NavLink = {
-  labelBn: string;
-  labelEn: string;
+
+  label: string;
   href: string;
 };
 
 const NAV_LINKS: NavLink[] = [
-  { labelBn: "হোম", labelEn: "Home", href: "#home" },
-  { labelBn: "আমাদের সম্পর্কে", labelEn: "About Us", href: "#about" },
+  {  label: "Home", href: "#home" },
+  {  label: "About Us", href: "#about" },
   // { labelBn: "সেবাসমূহ", labelEn: "Services", href: "#services" },
-  { labelBn: "পোর্টফোলিও", labelEn: "Portfolio", href: "#portfolio" },
-  { labelBn: "টেস্টিমোনিয়াল", labelEn: "Testimonials", href: "#testimonials" },
+  {  label: "Portfolio", href: "#portfolio" },
+  // { labelBn: "টেস্টিমোনিয়াল", labelEn: "Testimonials", href: "#testimonials" },
 ];
 
 const PHONE_NUMBER = "01740-367554";
@@ -73,7 +71,7 @@ export default function Navbar() {
     };
   }, [mobileOpen]);
 
-  const label = (l: NavLink) => (lang === "bn" ? l.labelBn : l.labelEn);
+
 
   return (
     <header className="sticky top-0 z-50 font-sans">
@@ -133,9 +131,7 @@ export default function Navbar() {
         <div className="mx-auto max-w-7xl px-4 lg:px-8 h-16 md:h-20 flex items-center justify-between gap-4">
           {/* Logo */}
           <a href="#home" className="flex items-center gap-2.5 shrink-0">
-            <span className="flex h-9 w-9 md:h-10 md:w-10 items-center justify-center rounded-lg bg-gradient-to-br from-sky-400 via-emerald-400 to-amber-400 text-white font-bold text-lg">
-              A
-            </span>
+           <Image src={logo} alt="Artova Logo" width={32} height={32} className="rounded-full w-12 h-12" />
             <span className="leading-tight">
               <span className="block text-lg md:text-xl font-extrabold tracking-wide text-slate-900">
                 ARTOVA
@@ -158,10 +154,10 @@ export default function Navbar() {
                   className={`relative py-1 text-sm font-medium transition-colors ${
                     isActive
                       ? "text-amber-600"
-                      : "text-slate-700 hover:text-amber-600"
+                      : "text-black hover:text-amber-600"
                   }`}
                 >
-                  <span className="block">{label(link)}</span>
+                  <span className="block">{link?.label}</span>
                   {isActive && (
                     <span className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-amber-500" />
                   )}
@@ -176,12 +172,12 @@ export default function Navbar() {
               href={WHATSAPP_HREF}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:flex items-center gap-2 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 px-4 py-2.5 text-white shadow-sm hover:from-amber-600 hover:to-amber-700 transition-colors"
+              className="hidden md:flex items-center gap-2 rounded-lg bg-linear-to-r from-amber-500 to-amber-600 px-4 py-2.5 text-white shadow-sm hover:from-amber-600 hover:to-amber-700 transition-colors"
             >
               <MessageCircle className="h-4 w-4" />
               <span className="leading-tight text-left">
                 <span className="block text-[11px] font-medium opacity-90">
-                  {lang === "bn" ? "হোয়াটসঅ্যাপ করুন" : "WhatsApp Us"}
+                  {"WhatsApp Us"}
                 </span>
                 <span className="block text-sm font-semibold">
                   {PHONE_NUMBER}
@@ -258,7 +254,7 @@ export default function Navbar() {
                           : "text-slate-700 hover:text-amber-600"
                       }`}
                     >
-                      {label(link)}
+                      {link.label}
                       <ChevronDown className="h-4 w-4 -rotate-90 opacity-40" />
                     </a>
                   </li>
@@ -266,13 +262,7 @@ export default function Navbar() {
               })}
             </ul>
 
-            <button
-              type="button"
-              onClick={() => setLang(lang === "bn" ? "en" : "bn")}
-              className="mt-4 text-sm font-medium text-slate-600 hover:text-amber-600"
-            >
-              {lang === "bn" ? "Switch to English" : "বাংলায় দেখুন"}
-            </button>
+
           </nav>
 
           <div className="p-4 border-t border-slate-100 space-y-3">
@@ -283,15 +273,15 @@ export default function Navbar() {
               className="flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 px-4 py-3 text-white font-semibold text-sm"
             >
               <MessageCircle className="h-4 w-4" />
-              {lang === "bn" ? "হোয়াটসঅ্যাপ করুন" : "WhatsApp Now"}
+              { "WhatsApp Now"}
             </a>
-            <div className="flex items-center justify-center gap-5 text-slate-500">
+            <div className="flex items-center justify-center gap-5 text-black">
               <a href={PHONE_HREF} className="flex items-center gap-1.5 text-sm">
                 <Phone className="h-3.5 w-3.5" />
                 {PHONE_NUMBER}
               </a>
             </div>
-            <div className="flex items-center justify-center gap-4 text-slate-400">
+            <div className="flex items-center justify-center gap-4 text-black">
               <a href="#" aria-label="Facebook" className="hover:text-amber-600">
                 <Facebook className="h-4 w-4" />
               </a>

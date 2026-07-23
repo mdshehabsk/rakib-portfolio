@@ -4,7 +4,6 @@ import Founder from "@/components/Founder";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import StatsBanner from "@/components/StatsBanner";
-import Testimonials from "@/components/Testimonials";
 import  Footer  from "@/components/Footer";
 
 const New = () => {
@@ -16,7 +15,7 @@ const New = () => {
     <Founder/>
     <Portfolio/>
     <StatsBanner/>
-    <Testimonials/>
+
     <Footer/>
     </>
   );

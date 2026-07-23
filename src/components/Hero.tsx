@@ -4,7 +4,12 @@ import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperType } from "swiper";
 import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
-import { ChevronLeft, ChevronRight, Sparkles, MessageCircle } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Sparkles,
+  MessageCircle,
+} from "lucide-react";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -15,42 +20,39 @@ import Image from "next/image";
 type Slide = {
   id: string;
   image: string;
-  eyebrowBn: string;
-  titleBn: string;
-  taglineBn: string;
-  descriptionBn: string;
+  eyebrow: string;
+  title: string;
+  tagline: string;
+  description: string;
 };
 
 const SLIDES: Slide[] = [
   {
     id: "slide-1",
-    image:
-      "/hero/hero1.png",
-    eyebrowBn: "ARTOVA",
-    titleBn: "YOUR VISION IS OUR CREATION",
-    taglineBn: "আপনার কল্পনাই আমাদের সৃষ্টির অনুপ্রেরণা",
-    descriptionBn:
-      "ক্যালিগ্রাফি, পেইন্টিং, ওয়াল আর্ট, ইন্টেরিয়র ডিজাইন ও ল্যান্ডস্কেপ ডিজাইনের মাধ্যমে আমরা আপনার স্বপ্নকে রূপ দেই শিল্পের ছোঁয়ায়।",
+    image: "/hero/hero1.png",
+    eyebrow: "ARTOVA",
+    title: "YOUR VISION IS OUR CREATION",
+    tagline: "Your Imagination Inspires Our Creation",
+    description:
+      "Through calligraphy, painting, wall art, interior design, and landscape design, we bring your dreams to life with an artistic touch.",
   },
   {
     id: "slide-2",
-    image:
-      "/hero/hero2.png",
-    eyebrowBn: "ARTOVA",
-    titleBn: "CRAFTED WITH PASSION",
-    taglineBn: "প্রতিটি কাজে থাকে নিখুঁত যত্ন ও ভালোবাসা",
-    descriptionBn:
-      "৫+ বছরের অভিজ্ঞতা নিয়ে আমরা সারা বাংলাদেশ ও আন্তর্জাতিক ক্লায়েন্টদের জন্য মানসম্পন্ন শিল্পকর্ম তৈরি করে যাচ্ছি।",
+    image: "/hero/hero2.png",
+    eyebrow: "ARTOVA",
+    title: "CRAFTED WITH PASSION",
+    tagline: "Every piece is crafted with care and passion",
+    description:
+      "With over 5 years of experience, we create high-quality artworks for clients across Bangladesh and internationally.",
   },
   {
     id: "slide-3",
-    image:
-      "/hero/hero3.png",
-    eyebrowBn: "ARTOVA",
-    titleBn: "DESIGN THAT SPEAKS",
-    taglineBn: "আপনার প্রতিষ্ঠানের গল্প বলবে আমাদের ডিজাইন",
-    descriptionBn:
-      "টাইপোগ্রাফি থেকে শুরু করে ওয়াল মুরাল পর্যন্ত, প্রতিটি প্রজেক্টে আমরা যোগ করি অনন্য সৃজনশীলতা।",
+    image: "/hero/hero3.png",
+    eyebrow: "ARTOVA",
+    title: "DESIGN THAT SPEAKS",
+    tagline: "Our designs tell the story of your brand",
+    description:
+      "From typography to wall murals, we bring unique creativity to every project.",
   },
 ];
 
@@ -58,10 +60,7 @@ export default function Hero() {
   const swiperRef = useRef<SwiperType | null>(null);
 
   return (
-    <section
-      id="home"
-      className="relative w-full overflow-hidden bg-[#0a1128]"
-    >
+    <section id="home" className="relative w-full overflow-hidden bg-[#0a1128]">
       <Swiper
         modules={[Navigation, Pagination, Autoplay, EffectFade]}
         effect="fade"
@@ -94,18 +93,18 @@ export default function Hero() {
               <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center px-4 lg:px-8">
                 <div className="max-w-xl">
                   <p className="mb-1 text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-wide text-white">
-                    {slide.eyebrowBn}
+                    {slide.eyebrow}
                   </p>
                   <p className="mb-4 text-sm sm:text-base font-semibold uppercase tracking-[0.2em] text-amber-400">
-                    {slide.titleBn}
+                    {slide.title}
                   </p>
 
                   <p className="mb-4 text-lg sm:text-xl font-medium text-amber-300">
-                    {slide.taglineBn}
+                    {slide.tagline}
                   </p>
 
                   <p className="mb-8 text-sm sm:text-base leading-relaxed text-slate-200">
-                    {slide.descriptionBn}
+                    {slide.description}
                   </p>
 
                   <div className="flex flex-wrap items-center gap-4">
@@ -114,10 +113,8 @@ export default function Hero() {
                       className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-amber-900/30 transition-colors hover:from-amber-600 hover:to-amber-700"
                     >
                       <Sparkles className="h-4 w-4" />
-                      আমাদের কাজ দেখুন
-                      <span className="hidden sm:inline">
-                        &nbsp;/ View Portfolio
-                      </span>
+                        View Portfolio
+                        <span className="hidden sm:inline">&nbsp;/ View Portfolio</span>
                     </a>
 
                     <a
@@ -127,10 +124,8 @@ export default function Hero() {
                       className="inline-flex items-center gap-2 rounded-lg border border-white/30 bg-white/10 px-6 py-3 text-sm font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/20"
                     >
                       <MessageCircle className="h-4 w-4" />
-                      হোয়াটসঅ্যাপ করুন
-                      <span className="hidden sm:inline">
-                        &nbsp;/ WhatsApp Now
-                      </span>
+                      WhatsApp Now
+                      <span className="hidden sm:inline">&nbsp;/ WhatsApp Now</span>
                     </a>
                   </div>
                 </div>

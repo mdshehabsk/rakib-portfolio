@@ -149,7 +149,7 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h3 className="mb-4 text-sm font-bold uppercase tracking-wide text-white">
-              যোগাযোগ করুন
+              Contact Us
             </h3>
             <ul className="space-y-3.5">
               <li className="flex items-start gap-3 text-sm text-slate-400">

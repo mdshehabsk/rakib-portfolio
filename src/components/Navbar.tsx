@@ -218,7 +218,7 @@ export default function Navbar() {
 
         {/* Panel */}
         <div
-          className={`absolute top-0 right-0 h-full w-72 max-w-[85%] bg-white/15 backdrop-blur-2xl border border-white/10 shadow-2xl shadow-black/20 transition-transform duration-300 flex flex-col ${
+          className={`absolute top-0 right-0 h-full w-72 max-w-[85%] bg-white shadow-xl transition-transform duration-300 flex flex-col ${
             mobileOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -270,7 +270,7 @@ export default function Navbar() {
               href={WHATSAPP_HREF}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-amber-500 to-amber-600 px-4 py-3 text-white font-semibold text-sm"
+              className="flex items-center justify-center gap-2 rounded-lg bg-linear-to-r from-amber-500 to-amber-600 px-4 py-3 text-white font-semibold text-sm"
             >
               <MessageCircle className="h-4 w-4" />
               { "WhatsApp Now"}

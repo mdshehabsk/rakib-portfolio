@@ -115,12 +115,10 @@ export default function Founder() {
             </div>
 
             <div className="mt-8 border-t border-white/10 pt-5">
-              <p className="mb-1 font-signature text-2xl italic text-white">
-                Md. Rakib Khan
+              <p className="mb-1 text-center text-2xl  text-amber-400 font-bold">
+                Artova
               </p>
-              <p className="text-xs text-slate-400">
-                Founder &amp; Creative Director
-              </p>
+              
             </div>
           </div>
         </div>

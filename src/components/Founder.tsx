@@ -25,11 +25,12 @@ const STATS: Stat[] = [
 const EXPERTISE = [
   { icon: Star, label: "Calligraphy" },
   { icon: Feather, label: "Canvas Painting" },
-  { icon: Palette, label: "Wall Murals" },
-  { icon: Building2, label: "Interior Art" },
-  { icon: Type, label: "Typography Design" },
-  { icon: Trees, label: "Landscape Design" },
+  { icon: Palette, label: "Wall Art" },
+  { icon: Building2, label: "Interior Design" },
+  { icon: Type, label: "Typography" },
+  { icon: Trees, label: "Landscape Painting" },
 ];
+
 
 export default function Founder() {
   return (

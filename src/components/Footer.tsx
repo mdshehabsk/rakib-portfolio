@@ -50,19 +50,19 @@ type LinkItem = { labelBn: string; href: string };
 const QUICK_LINKS: LinkItem[] = [
   { labelBn: "Home", href: "#home" },
   { labelBn: "About Us", href: "#about" },
-  { labelBn: "Services", href: "#services" },
+  // { labelBn: "Services", href: "#services" },
   { labelBn: "Portfolio", href: "#portfolio" },
-  { labelBn: "Testimonials", href: "#testimonials" },
-  { labelBn: "Contact", href: "#contact" },
+  // { labelBn: "Testimonials", href: "#testimonials" },
+  // { labelBn: "Contact", href: "#contact" },
 ];
 
 const SERVICES: LinkItem[] = [
   { labelBn: "Calligraphy", href: "#services" },
   { labelBn: "Canvas Painting", href: "#services" },
   { labelBn: "Wall Art", href: "#services" },
-  { labelBn: "Interior Art", href: "#services" },
-  { labelBn: "Typography Design", href: "#services" },
-  { labelBn: "Landscape Design", href: "#services" },
+  { labelBn: "Interior Design", href: "#services" },
+  { labelBn: "Typography", href: "#services" },
+  { labelBn: "Landscape Painting", href: "#services" },
 ];
 
 const SOCIALS = [

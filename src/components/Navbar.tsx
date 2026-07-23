@@ -124,8 +124,8 @@ export default function Navbar() {
 
       {/* Main navbar */}
       <div
-        className={`bg-white transition-shadow ${
-          scrolled ? "shadow-md" : "shadow-sm"
+        className={`backdrop-blur-2xl bg-white/20 border border-white/10 transition-shadow duration-300 ${
+          scrolled ? "shadow-xl bg-white/15" : "shadow-sm bg-white/10"
         }`}
       >
         <div className="mx-auto max-w-7xl px-4 lg:px-8 h-16 md:h-20 flex items-center justify-between gap-4">
@@ -172,7 +172,7 @@ export default function Navbar() {
               href={WHATSAPP_HREF}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:flex items-center gap-2 rounded-lg bg-linear-to-r from-amber-500 to-amber-600 px-4 py-2.5 text-white shadow-sm hover:from-amber-600 hover:to-amber-700 transition-colors"
+              className="hidden md:flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 px-4 py-2.5 text-white shadow-2xl shadow-amber-500/20 transition-colors hover:from-amber-600 hover:to-amber-700"
             >
               <MessageCircle className="h-4 w-4" />
               <span className="leading-tight text-left">
@@ -218,7 +218,7 @@ export default function Navbar() {
 
         {/* Panel */}
         <div
-          className={`absolute top-0 right-0 h-full w-72 max-w-[85%] bg-white shadow-xl transition-transform duration-300 flex flex-col ${
+          className={`absolute top-0 right-0 h-full w-72 max-w-[85%] bg-white/15 backdrop-blur-2xl border border-white/10 shadow-2xl shadow-black/20 transition-transform duration-300 flex flex-col ${
             mobileOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >

@@ -155,7 +155,7 @@ export default function Footer() {
               <li className="flex items-start gap-3 text-sm text-slate-400">
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-amber-400" />
                 <a href="tel:+8801740367554" className="hover:text-amber-400">
-                  01740-367554 (WhatsApp)
+                  01740-367554 (WhatsApp)1
                 </a>
               </li>
               <li className="flex items-start gap-3 text-sm text-slate-400">

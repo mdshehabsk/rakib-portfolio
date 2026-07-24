@@ -66,11 +66,7 @@ export default function Founder() {
             </blockquote>
 
             <p className="mb-8 text-sm sm:text-base leading-relaxed text-slate-600">
-              With over 5 years of experience, we specialize in calligraphy,
-              canvas painting, wall murals, typography, and interior art. We
-              serve clients locally and internationally, striving to bring
-              artistic beauty, serenity, and refined aesthetics to every
-              project.
+             {"Artova is more than just an organization to me—it is a reflection of my dreams, my beliefs, and my life's vision. I believe that art is not merely about creating beauty; it has the power to inspire, transform perspectives, and positively shape people's lives. It is this belief that gave birth to Artova. My mission is not simply to create artworks, but to enrich lives through creativity, "}
             </p>
 
             <div className="flex flex-wrap justify-between items-center gap-4">

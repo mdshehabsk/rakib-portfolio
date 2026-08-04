@@ -60,7 +60,7 @@ export default function Founder() {
               Founder &amp; Creative Director, Artova
             </p>
 
-            <blockquote className="mb-5 border-l-4 border-amber-400 pl-4 text-base sm:text-lg italic text-slate-700">
+            <blockquote className="mb-5 border-l-4 border-amber-400 pl-4 text-base sm:text-lg text-slate-700">
               &ldquo;Art is not just decoration; it is a way to express
               identity, faith, and imagination.&rdquo;
             </blockquote>
